@@ -14,11 +14,12 @@ function createNewTodo() {
 
     todos.unshift(item);
 
-    const {todoItem, textItem, editItem, removeItem} = createTodoElement(item);
+    const {todoItem, textElement} = createTodoElement(item);
+    console.log(todoItem)
     list.prepend(todoItem)
 
-    textItem.removeAttribute("disabled");
-    textItem.focus();
+    textElement.removeAttribute('disabled');
+    textElement.focus();
     saveToLocalStorage();
 }
 
@@ -101,7 +102,7 @@ function createTodoElement(item) {
     actionItemContainer.append(removeElement);
 
     todoItem.append(actionItemContainer);
-    return {todoItem, textElement, editElement, removeElement}
+    return {todoItem, textElement}
 }
 
 function saveToLocalStorage() {
